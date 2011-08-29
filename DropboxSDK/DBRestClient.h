@@ -93,7 +93,7 @@ extern NSString* kDBProtocolHTTPS;
 // Implement the following callback instead of the previous if you care about the value of the
 // Content-Type HTTP header. Only one will be called per successful response.
 - (void)restClient:(DBRestClient*)client loadedFile:(NSString*)destPath contentType:(NSString*)contentType;
-- (void)restClient:(DBRestClient*)client loadProgress:(CGFloat)progress forFile:(NSString*)destPath;
+- (void)restClient:(DBRestClient*)client loadProgress:(float_t)progress forFile:(NSString*)destPath;
 - (void)restClient:(DBRestClient*)client loadFileFailedWithError:(NSError*)error;
 // [error userInfo] contains the destinationPath
 
@@ -101,14 +101,14 @@ extern NSString* kDBProtocolHTTPS;
 - (void)restClient:(DBRestClient*)client loadThumbnailFailedWithError:(NSError*)error;
 
 - (void)restClient:(DBRestClient*)client uploadedFile:(NSString*)destPath from:(NSString*)srcPath;
-- (void)restClient:(DBRestClient*)client uploadProgress:(CGFloat)progress 
+- (void)restClient:(DBRestClient*)client uploadProgress:(float_t)progress 
 forFile:(NSString*)destPath from:(NSString*)srcPath;
 - (void)restClient:(DBRestClient*)client uploadFileFailedWithError:(NSError*)error;
 // [error userInfo] contains the sourcePath
 
 // Deprecated upload callbacks
 - (void)restClient:(DBRestClient*)client uploadedFile:(NSString*)srcPath;
-- (void)restClient:(DBRestClient*)client uploadProgress:(CGFloat)progress forFile:(NSString*)srcPath;
+- (void)restClient:(DBRestClient*)client uploadProgress:(float_t)progress forFile:(NSString*)srcPath;
 
 - (void)restClient:(DBRestClient*)client createdFolder:(DBMetadata*)folder;
 // Folder is the metadata for the newly created folder
