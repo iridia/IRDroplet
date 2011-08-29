@@ -34,6 +34,12 @@ NSString* kDBProtocolHTTPS = @"https";
 
 - (void)checkForAuthenticationFailure:(DBRequest*)request;
 
++ (NSString *) createFakeSignatureForSession:(DBSession *)session params:(NSArray *)params fileName:(NSString *)filename baseURL:(NSURL *)baseUrl;
+
++ (NSMutableURLRequest *) createRealRequestForSession:(DBSession *)session params:(NSArray *)params urlString:(NSString *)urlString signatureText:(NSString *)signatureText;
+
++ (DBErrorCode) addFileUploadToRequest:(NSMutableURLRequest *)urlRequest filename:(NSString *)filename sourcePath:(NSString *)sourcePath;
+
 @end
 
 
@@ -300,8 +306,8 @@ contentType:(NSString*)contentType eTag:(NSString*)eTag {
 
 
 
-NSString *createFakeSignature(DBSession *session, NSArray *params, NSString *filename, NSURL *baseUrl)
-{
+
++ (NSString *) createFakeSignatureForSession:(DBSession *)session params:(NSArray *)params fileName:(NSString *)filename baseURL:(NSURL *)baseUrl {
     NSArray* extraParams = [MPURLRequestParameter parametersFromDictionary:
             [NSDictionary dictionaryWithObject:filename forKey:@"file"]];
     
@@ -322,8 +328,7 @@ NSString *createFakeSignature(DBSession *session, NSArray *params, NSString *fil
     return [signatureParameter URLEncodedParameterString];
 }
 
-NSMutableURLRequest *createRealRequest(DBSession *session, NSArray *params, NSString *urlString, NSString *signatureText)
-{
++ (NSMutableURLRequest *) createRealRequestForSession:(DBSession *)session params:(NSArray *)params urlString:(NSString *)urlString signatureText:(NSString *)signatureText {
     NSMutableArray *paramList = [NSMutableArray arrayWithArray:params];
     // Then rebuild request using that signature
     [paramList sortUsingSelector:@selector(compare:)];
@@ -340,8 +345,7 @@ NSMutableURLRequest *createRealRequest(DBSession *session, NSArray *params, NSSt
 }
 
 // Returns DBErrorNone if no errors were encountered
-DBErrorCode addFileUploadToRequest(NSMutableURLRequest *urlRequest, NSString *filename, NSString *sourcePath)
-{
++ (DBErrorCode) addFileUploadToRequest:(NSMutableURLRequest *)urlRequest filename:(NSString *)filename sourcePath:(NSString *)sourcePath {
     // Create input stream
     CFUUIDRef uuid = CFUUIDCreate(NULL);
     NSString* stringBoundary = [(NSString*)CFUUIDCreateString(NULL, uuid) autorelease];
@@ -432,26 +436,21 @@ DBErrorCode addFileUploadToRequest(NSMutableURLRequest *urlRequest, NSString *fi
 
     // path is the directory the file will be uploaded to, make sure it doesn't have a trailing /
     // (unless it's the root dir) and is properly escaped
-    NSString* trimmedPath;
+    NSString *trimmedPath = path;
     if ([path length] > 1 && [path characterAtIndex:[path length]-1] == '/') {
         trimmedPath = [path substringToIndex:[path length]-1];
-    } else {
-        trimmedPath = path;
     }
-    NSString* escapedPath = [DBRestClient escapePath:trimmedPath];
-    
-    NSString* urlString = [NSString stringWithFormat:@"%@://%@/%@/files/%@%@", 
+		
+    NSString *escapedPath = [DBRestClient escapePath:trimmedPath];
+    NSString *urlString = [NSString stringWithFormat:@"%@://%@/%@/files/%@%@", 
             kDBProtocolHTTPS, kDBDropboxAPIContentHost, kDBDropboxAPIVersion, root, escapedPath];
-    NSURL* baseUrl = [NSURL URLWithString:urlString];
-    NSArray* params = [session.credentialStore oauthParameters];
-
+    NSURL *baseUrl = [NSURL URLWithString:urlString];
+    NSArray *params = [session.credentialStore oauthParameters];
     NSString *escapedFilename = [filename stringByReplacingOccurrencesOfString:@";" withString:@"-"];
-
-    NSString *signatureText = createFakeSignature(session, params, escapedFilename, baseUrl);
-
-    NSMutableURLRequest *urlRequest = createRealRequest(session, params, urlString, signatureText);
+    NSString *signatureText = [[self class] createFakeSignatureForSession:session params:params fileName:escapedFilename baseURL:baseUrl];
+    NSMutableURLRequest *urlRequest = [[self class] createRealRequestForSession:session params:params urlString:urlString signatureText:signatureText];
    
-    DBErrorCode errorCode = addFileUploadToRequest(urlRequest, escapedFilename, sourcePath);
+    DBErrorCode errorCode = [[self class] addFileUploadToRequest:urlRequest filename:escapedFilename sourcePath:sourcePath];
     if(errorCode == DBErrorNone) {
         DBRequest* request = 
             [[[DBRequest alloc] 
