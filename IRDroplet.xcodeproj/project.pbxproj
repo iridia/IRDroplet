@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF2AC62A140D599700263CB4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF2AC629140D599700263CB4 /* Security.framework */; };
+		FF2AC68F140D5BD100263CB4 /* IRDropletCredentialsRequestController.h in Headers */ = {isa = PBXBuildFile; fileRef = FF2AC68D140D5BD100263CB4 /* IRDropletCredentialsRequestController.h */; };
+		FF2AC690140D5BD100263CB4 /* IRDropletCredentialsRequestController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2AC68E140D5BD100263CB4 /* IRDropletCredentialsRequestController.m */; };
 		FF779E74140BF47D00BB974C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF779E73140BF47D00BB974C /* Foundation.framework */; };
 		FF779EDB140BF49700BB974C /* DBAccountInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = FF779E85140BF49600BB974C /* DBAccountInfo.h */; };
 		FF779EDC140BF49700BB974C /* DBAccountInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FF779E86140BF49600BB974C /* DBAccountInfo.m */; };
@@ -87,6 +90,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FF2AC629140D599700263CB4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		FF2AC68D140D5BD100263CB4 /* IRDropletCredentialsRequestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IRDropletCredentialsRequestController.h; path = IRDroplet/IRDropletCredentialsRequestController.h; sourceTree = SOURCE_ROOT; };
+		FF2AC68E140D5BD100263CB4 /* IRDropletCredentialsRequestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IRDropletCredentialsRequestController.m; path = IRDroplet/IRDropletCredentialsRequestController.m; sourceTree = SOURCE_ROOT; };
 		FF779E70140BF47D00BB974C /* libIRDroplet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIRDroplet.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF779E73140BF47D00BB974C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FF779E85140BF49600BB974C /* DBAccountInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBAccountInfo.h; sourceTree = "<group>"; };
@@ -183,6 +189,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF2AC62A140D599700263CB4 /* Security.framework in Frameworks */,
 				FF779E74140BF47D00BB974C /* Foundation.framework in Frameworks */,
 				FF779F37140BF52000BB974C /* CoreGraphics.framework in Frameworks */,
 				FF779F35140BF51D00BB974C /* UIKit.framework in Frameworks */,
@@ -213,6 +220,7 @@
 		FF779E72140BF47D00BB974C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FF2AC629140D599700263CB4 /* Security.framework */,
 				FF779E73140BF47D00BB974C /* Foundation.framework */,
 				FF779F36140BF52000BB974C /* CoreGraphics.framework */,
 				FF779F34140BF51D00BB974C /* UIKit.framework */,
@@ -225,6 +233,8 @@
 			children = (
 				FF779F2A140BF4DB00BB974C /* IRDroplet.h */,
 				FF779F2B140BF4DB00BB974C /* IRDroplet.m */,
+				FF2AC68D140D5BD100263CB4 /* IRDropletCredentialsRequestController.h */,
+				FF2AC68E140D5BD100263CB4 /* IRDropletCredentialsRequestController.m */,
 				FF779E76140BF47D00BB974C /* Supporting Files */,
 			);
 			name = IRDroplet;
@@ -407,6 +417,7 @@
 				FF779F20140BF49700BB974C /* NSString+Dropbox.h in Headers */,
 				FF779F2C140BF4DB00BB974C /* IRDroplet.h in Headers */,
 				FF779F2F140BF4DF00BB974C /* IRDroplet-Prefix.pch in Headers */,
+				FF2AC68F140D5BD100263CB4 /* IRDropletCredentialsRequestController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +505,7 @@
 				FF779F1F140BF49700BB974C /* NSURLResponse+Encoding.m in Sources */,
 				FF779F21140BF49700BB974C /* NSString+Dropbox.m in Sources */,
 				FF779F2D140BF4DB00BB974C /* IRDroplet.m in Sources */,
+				FF2AC690140D5BD100263CB4 /* IRDropletCredentialsRequestController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
