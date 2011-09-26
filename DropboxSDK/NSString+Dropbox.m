@@ -11,13 +11,17 @@
 
 @implementation NSString (Dropbox)
 
-- (NSString*)normalizedDropboxPath {
+- (NSString *) normalizedDropboxPath {
     if ([self isEqual:@"/"]) return @"";
     return [[self lowercaseString] precomposedStringWithCanonicalMapping];
 }
 
-- (BOOL)isEqualToDropboxPath:(NSString*)otherPath {
+- (BOOL) isEqualToDropboxPath:(NSString*)otherPath {
     return [[self normalizedDropboxPath] isEqualToString:[otherPath normalizedDropboxPath]];
+}
+
+- (NSString *) normalizedDropboxFilename {            
+    return [(NSString *) CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)[[self mutableCopy] autorelease], NULL, CFSTR("￼=,!$&'()*+;@?\n\"<>#\t :/"),kCFStringEncodingUTF8) autorelease];
 }
 
 @end
