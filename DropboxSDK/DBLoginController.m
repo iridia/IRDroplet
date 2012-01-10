@@ -213,7 +213,7 @@ UITableViewDataSource, UITableViewDelegate>
 
 - (void)didPressCancel {
     [self setWorking:NO];
-    [self.navigationController.parentViewController dismissModalViewControllerAnimated:YES];
+    [self dismissModalViewControllerAnimated:YES];
     [delegate loginControllerDidCancel:self];
 }
 
