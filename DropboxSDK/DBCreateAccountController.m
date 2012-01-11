@@ -368,7 +368,7 @@ replacementString:(NSString *)string {
 
 - (void)restClientDidLogin:(DBRestClient*)client {
     [self setWorking:NO];
-    [self.navigationController.parentViewController dismissModalViewControllerAnimated:YES];
+    [self dismissModalViewControllerAnimated:YES];
     [loginController.delegate loginControllerDidLogin:loginController];
 }
 
