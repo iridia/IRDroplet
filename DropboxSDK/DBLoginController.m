@@ -213,7 +213,7 @@ UITableViewDataSource, UITableViewDelegate>
 
 - (void)didPressCancel {
     [self setWorking:NO];
-    [self.navigationController.parentViewController dismissModalViewControllerAnimated:YES];
+    [self dismissModalViewControllerAnimated:YES];
     [delegate loginControllerDidCancel:self];
 }
 
@@ -365,7 +365,7 @@ replacementString:(NSString *)string {
 
 - (void)restClientDidLogin:(DBRestClient*)client {
     [self setWorking:NO];
-    [self.parentViewController dismissModalViewControllerAnimated:YES];
+    [self dismissModalViewControllerAnimated:YES];
     [delegate loginControllerDidLogin:self];
 }
 
