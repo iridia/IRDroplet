@@ -27,7 +27,7 @@ enum {
 @interface DBCreateAccountController () <UITextFieldDelegate, DBRestClientDelegate,
 UITableViewDataSource, UITableViewDelegate>
 
-- (void)didPressCreateAccount;
+- (IBAction) didPressCreateAccount;
 - (void)setWorking:(BOOL)working;
 - (void)updateActionButton;
 - (void)errorWithTitle:(NSString*)title message:(NSString*)message;
