@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 
 
-#import <MPOAuth/MPOAuthAPI.h>
-#import <MPOAuth/MPOAuthAPIRequestLoader.h>
-#import <MPOAuth/MPOAuthAuthenticationMethod.h>
-#import <MPOAuth/MPOAuthAuthenticationMethodOAuth.h>
-#import <MPOAuth/MPOAuthCredentialStore.h>
-#import <MPOAuth/MPOAuthParameterFactory.h>
-#import <MPOAuth/MPOAuthConnection.h>
-#import <MPOAuth/MPOAuthURLRequest.h>
-#import <MPOAuth/MPOAuthURLResponse.h>
+#import "MPOAuthAPI.h"
+#import "MPOAuthAPIRequestLoader.h"
+#import "MPOAuthAuthenticationMethod.h"
+#import "MPOAuthAuthenticationMethodOAuth.h"
+#import "MPOAuthCredentialStore.h"
+#import "MPOAuthParameterFactory.h"
+#import "MPOAuthConnection.h"
+#import "MPOAuthURLRequest.h"
+#import "MPOAuthURLResponse.h"

@@ -78,6 +78,13 @@
 		FF2A54DB150E4F4000553DA6 /* NSString+Dropbox.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2A548F150E4F4000553DA6 /* NSString+Dropbox.m */; };
 		FF2A54DF150E4F4000553DA6 /* UIAlertView+Dropbox.h in Headers */ = {isa = PBXBuildFile; fileRef = FF2A5493150E4F4000553DA6 /* UIAlertView+Dropbox.h */; };
 		FF2A54E0150E4F4000553DA6 /* UIAlertView+Dropbox.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2A5494150E4F4000553DA6 /* UIAlertView+Dropbox.m */; };
+		FF2A5536150E5A1000553DA6 /* NSString+URLEscapingAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = FF2A5533150E5A1000553DA6 /* NSString+URLEscapingAdditions.h */; };
+		FF2A5537150E5A1000553DA6 /* NSURL+MPURLParameterAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = FF2A5534150E5A1000553DA6 /* NSURL+MPURLParameterAdditions.h */; };
+		FF2A5538150E5A1000553DA6 /* NSURLResponse+Encoding.h in Headers */ = {isa = PBXBuildFile; fileRef = FF2A5535150E5A1000553DA6 /* NSURLResponse+Encoding.h */; };
+		FF2A553C150E5CFD00553DA6 /* IRDropletLinkAccountViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = FF2A553A150E5CFD00553DA6 /* IRDropletLinkAccountViewController.h */; };
+		FF2A553D150E5CFD00553DA6 /* IRDropletLinkAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2A553B150E5CFD00553DA6 /* IRDropletLinkAccountViewController.m */; };
+		FF2A5543150E62F000553DA6 /* DBSession+IRDropletAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = FF2A5541150E62EE00553DA6 /* DBSession+IRDropletAdditions.h */; };
+		FF2A5544150E62F000553DA6 /* DBSession+IRDropletAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2A5542150E62F000553DA6 /* DBSession+IRDropletAdditions.m */; };
 		FF2AC62A140D599700263CB4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF2AC629140D599700263CB4 /* Security.framework */; };
 		FF779E74140BF47D00BB974C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF779E73140BF47D00BB974C /* Foundation.framework */; };
 		FF779F2C140BF4DB00BB974C /* IRDroplet.h in Headers */ = {isa = PBXBuildFile; fileRef = FF779F2A140BF4DB00BB974C /* IRDroplet.h */; };
@@ -159,6 +166,14 @@
 		FF2A548F150E4F4000553DA6 /* NSString+Dropbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Dropbox.m"; sourceTree = "<group>"; };
 		FF2A5493150E4F4000553DA6 /* UIAlertView+Dropbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Dropbox.h"; sourceTree = "<group>"; };
 		FF2A5494150E4F4000553DA6 /* UIAlertView+Dropbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Dropbox.m"; sourceTree = "<group>"; };
+		FF2A5533150E5A1000553DA6 /* NSString+URLEscapingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEscapingAdditions.h"; sourceTree = "<group>"; };
+		FF2A5534150E5A1000553DA6 /* NSURL+MPURLParameterAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+MPURLParameterAdditions.h"; sourceTree = "<group>"; };
+		FF2A5535150E5A1000553DA6 /* NSURLResponse+Encoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLResponse+Encoding.h"; sourceTree = "<group>"; };
+		FF2A553A150E5CFD00553DA6 /* IRDropletLinkAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IRDropletLinkAccountViewController.h; path = IRDroplet/IRDropletLinkAccountViewController.h; sourceTree = SOURCE_ROOT; };
+		FF2A553B150E5CFD00553DA6 /* IRDropletLinkAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IRDropletLinkAccountViewController.m; path = IRDroplet/IRDropletLinkAccountViewController.m; sourceTree = SOURCE_ROOT; };
+		FF2A5541150E62EE00553DA6 /* DBSession+IRDropletAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DBSession+IRDropletAdditions.h"; path = "IRDroplet/DBSession+IRDropletAdditions.h"; sourceTree = SOURCE_ROOT; };
+		FF2A5542150E62F000553DA6 /* DBSession+IRDropletAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DBSession+IRDropletAdditions.m"; path = "IRDroplet/DBSession+IRDropletAdditions.m"; sourceTree = SOURCE_ROOT; };
+		FF2A5545150E645800553DA6 /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
 		FF2AC629140D599700263CB4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		FF779E70140BF47D00BB974C /* libIRDroplet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIRDroplet.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF779E73140BF47D00BB974C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -235,8 +250,11 @@
 				FF2A5484150E4F4000553DA6 /* MPOAuthURLResponse.m */,
 				FF2A5485150E4F4000553DA6 /* MPURLRequestParameter.h */,
 				FF2A5486150E4F4000553DA6 /* MPURLRequestParameter.m */,
+				FF2A5533150E5A1000553DA6 /* NSString+URLEscapingAdditions.h */,
 				FF2A5487150E4F4000553DA6 /* NSString+URLEscapingAdditions.m */,
+				FF2A5534150E5A1000553DA6 /* NSURL+MPURLParameterAdditions.h */,
 				FF2A5488150E4F4000553DA6 /* NSURL+MPURLParameterAdditions.m */,
+				FF2A5535150E5A1000553DA6 /* NSURLResponse+Encoding.h */,
 				FF2A5489150E4F4000553DA6 /* NSURLResponse+Encoding.m */,
 			);
 			path = MPOAuth;
@@ -272,6 +290,7 @@
 		FF779E72140BF47D00BB974C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FF2A5545150E645800553DA6 /* libcommonCrypto.dylib */,
 				FF2AC629140D599700263CB4 /* Security.framework */,
 				FF779E73140BF47D00BB974C /* Foundation.framework */,
 				FF779F36140BF52000BB974C /* CoreGraphics.framework */,
@@ -285,6 +304,10 @@
 			children = (
 				FF779F2A140BF4DB00BB974C /* IRDroplet.h */,
 				FF779F2B140BF4DB00BB974C /* IRDroplet.m */,
+				FF2A553A150E5CFD00553DA6 /* IRDropletLinkAccountViewController.h */,
+				FF2A553B150E5CFD00553DA6 /* IRDropletLinkAccountViewController.m */,
+				FF2A5541150E62EE00553DA6 /* DBSession+IRDropletAdditions.h */,
+				FF2A5542150E62F000553DA6 /* DBSession+IRDropletAdditions.m */,
 				FF779E76140BF47D00BB974C /* Supporting Files */,
 			);
 			name = IRDroplet;
@@ -380,6 +403,11 @@
 				FF2A54D6150E4F4000553DA6 /* NSDictionary+Dropbox.h in Headers */,
 				FF2A54DA150E4F4000553DA6 /* NSString+Dropbox.h in Headers */,
 				FF2A54DF150E4F4000553DA6 /* UIAlertView+Dropbox.h in Headers */,
+				FF2A5536150E5A1000553DA6 /* NSString+URLEscapingAdditions.h in Headers */,
+				FF2A5537150E5A1000553DA6 /* NSURL+MPURLParameterAdditions.h in Headers */,
+				FF2A5538150E5A1000553DA6 /* NSURLResponse+Encoding.h in Headers */,
+				FF2A553C150E5CFD00553DA6 /* IRDropletLinkAccountViewController.h in Headers */,
+				FF2A5543150E62F000553DA6 /* DBSession+IRDropletAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +496,8 @@
 				FF2A54D7150E4F4000553DA6 /* NSDictionary+Dropbox.m in Sources */,
 				FF2A54DB150E4F4000553DA6 /* NSString+Dropbox.m in Sources */,
 				FF2A54E0150E4F4000553DA6 /* UIAlertView+Dropbox.m in Sources */,
+				FF2A553D150E5CFD00553DA6 /* IRDropletLinkAccountViewController.m in Sources */,
+				FF2A5544150E62F000553DA6 /* DBSession+IRDropletAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,6 +552,10 @@
 				DSTROOT = /tmp/droplet.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IRDroplet/IRDroplet-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)/usr/lib/system\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
@@ -538,6 +572,10 @@
 				DSTROOT = /tmp/droplet.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IRDroplet/IRDroplet-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)/usr/lib/system\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
