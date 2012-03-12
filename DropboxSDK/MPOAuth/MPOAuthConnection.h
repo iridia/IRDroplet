@@ -17,7 +17,7 @@
 
 @interface MPOAuthConnection : NSURLConnection {
 @private
-	id <MPOAuthCredentialStore, MPOAuthParameterFactory> _credentials;
+	MPOAuthCredentialConcreteStore *_credentials;
 }
 
 @property (nonatomic, readonly) id <MPOAuthCredentialStore, MPOAuthParameterFactory> credentials;

@@ -27,14 +27,17 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NSString+SBJSON.h"
-#import "SBJsonParser.h"
+#import "NSString+DBJSON.h"
+#import "DBJsonParser.h"
 
-@implementation NSString (NSString_SBJSON)
+#import "DBDefines.h"
+
+
+@implementation NSString (NSString_DBJSON)
 
 - (id)JSONFragmentValue
 {
-    SBJsonParser *jsonParser = [SBJsonParser new];    
+    DBJsonParser *jsonParser = [DBJsonParser new];    
     id repr = [jsonParser fragmentWithString:self];    
     if (!repr)
         NSLog(@"-JSONFragmentValue failed. Error trace is: %@", [jsonParser errorTrace]);
@@ -44,7 +47,7 @@
 
 - (id)JSONValue
 {
-    SBJsonParser *jsonParser = [SBJsonParser new];
+    DBJsonParser *jsonParser = [DBJsonParser new];
     id repr = [jsonParser objectWithString:self];
     if (!repr)
         NSLog(@"-JSONValue failed. Error trace is: %@", [jsonParser errorTrace]);
@@ -53,3 +56,5 @@
 }
 
 @end
+
+DB_FIX_CATEGORY_BUG(NSString_DBJSON)

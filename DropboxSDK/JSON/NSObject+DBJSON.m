@@ -27,13 +27,16 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#import "NSObject+SBJSON.h"
-#import "SBJsonWriter.h"
+#import "NSObject+DBJSON.h"
+#import "DBJsonWriter.h"
 
-@implementation NSObject (NSObject_SBJSON)
+#import "DBDefines.h"
+
+
+@implementation NSObject (NSObject_DBJSON)
 
 - (NSString *)JSONFragment {
-    SBJsonWriter *jsonWriter = [SBJsonWriter new];
+    DBJsonWriter *jsonWriter = [DBJsonWriter new];
     NSString *json = [jsonWriter stringWithFragment:self];    
     if (!json)
         NSLog(@"-JSONFragment failed. Error trace is: %@", [jsonWriter errorTrace]);
@@ -42,7 +45,7 @@
 }
 
 - (NSString *)JSONRepresentation {
-    SBJsonWriter *jsonWriter = [SBJsonWriter new];    
+    DBJsonWriter *jsonWriter = [DBJsonWriter new];    
     NSString *json = [jsonWriter stringWithObject:self];
     if (!json)
         NSLog(@"-JSONRepresentation failed. Error trace is: %@", [jsonWriter errorTrace]);
@@ -51,3 +54,5 @@
 }
 
 @end
+
+DB_FIX_CATEGORY_BUG(NSObject_DBJSON)

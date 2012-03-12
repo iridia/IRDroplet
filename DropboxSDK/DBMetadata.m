@@ -8,33 +8,23 @@
 
 #import "DBMetadata.h"
 
-@interface DBMetadata ()
-
-+ (NSDateFormatter *) defaultDateFormatter;
-
-@end
-
 @implementation DBMetadata
 
-+ (NSDateFormatter *) defaultDateFormatter {
-
-	static NSString * const kDBMetadataDateFormatter = @"kDBMetadataDateFormatter";
-	
-	NSMutableDictionary *threadDictionary = [[NSThread currentThread] threadDictionary];
-	NSDateFormatter *dateFormatter = [threadDictionary objectForKey:kDBMetadataDateFormatter];
-	
-	if (dateFormatter)
-		return dateFormatter;
-	
-	dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
-	dateFormatter.locale = [[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"] autorelease];
-	dateFormatter.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
-	dateFormatter.dateFormat = @"EEE, dd MMM yyyy HH:mm:ss +0000";
-	
-	[threadDictionary setObject:dateFormatter forKey:kDBMetadataDateFormatter];	
-	
-	return dateFormatter;
-
++ (NSDateFormatter*)dateFormatter {
+    NSMutableDictionary* dictionary = [[NSThread currentThread] threadDictionary];
+    static NSString* dateFormatterKey = @"DBMetadataDateFormatter";
+    
+    NSDateFormatter* dateFormatter = [dictionary objectForKey:dateFormatterKey];
+    if (dateFormatter == nil) {
+        dateFormatter = [[NSDateFormatter new] autorelease];
+        // Must set locale to ensure consistent parsing:
+        // http://developer.apple.com/iphone/library/qa/qa2010/qa1480.html
+        dateFormatter.locale = 
+            [[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"] autorelease];
+        dateFormatter.dateFormat = @"EEE, dd MMM yyyy HH:mm:ss Z";
+        [dictionary setObject:dateFormatter forKey:dateFormatterKey];
+    }
+    return dateFormatter;
 }
 
 - (id)initWithDictionary:(NSDictionary*)dict {
@@ -44,7 +34,7 @@
 
         if ([dict objectForKey:@"modified"]) {
             lastModifiedDate = 
-				[[[[self class] defaultDateFormatter] dateFromString:[dict objectForKey:@"modified"]] retain];
+                [[[DBMetadata dateFormatter] dateFromString:[dict objectForKey:@"modified"]] retain];
         }
 
         path = [[dict objectForKey:@"path"] retain];
@@ -66,6 +56,7 @@
         humanReadableSize = [[dict objectForKey:@"size"] retain];
         root = [[dict objectForKey:@"root"] retain];
         icon = [[dict objectForKey:@"icon"] retain];
+        rev = [[dict objectForKey:@"rev"] retain];
         revision = [[dict objectForKey:@"revision"] longLongValue];
         isDeleted = [[dict objectForKey:@"is_deleted"] boolValue];
     }
@@ -80,6 +71,8 @@
     [humanReadableSize release];
     [root release];
     [icon release];
+    [rev release];
+    [filename release];
     [super dealloc];
 }
 
@@ -93,9 +86,23 @@
 @synthesize humanReadableSize;
 @synthesize root;
 @synthesize icon;
+@synthesize rev;
 @synthesize revision;
 @synthesize isDeleted;
 
+- (BOOL)isEqual:(id)object {
+    if (object == self) return YES;
+    if (![object isKindOfClass:[DBMetadata class]]) return NO;
+    DBMetadata *other = (DBMetadata *)object;
+    return [self.rev isEqualToString:other.rev];
+}
+
+- (NSString *)filename {
+    if (filename == nil) {
+        filename = [[path lastPathComponent] retain];
+    }
+    return filename;
+}
 
 #pragma mark NSCoding methods
 
@@ -111,6 +118,7 @@
         humanReadableSize = [[coder decodeObjectForKey:@"humanReadableSize"] retain];
         root = [[coder decodeObjectForKey:@"root"] retain];
         icon = [[coder decodeObjectForKey:@"icon"] retain];
+        rev = [[coder decodeObjectForKey:@"rev"] retain];
         revision = [coder decodeInt64ForKey:@"revision"];
         isDeleted = [coder decodeBoolForKey:@"isDeleted"];
     }
@@ -128,9 +136,9 @@
     [coder encodeObject:humanReadableSize forKey:@"humanReadableSize"];
     [coder encodeObject:root forKey:@"root"];
     [coder encodeObject:icon forKey:@"icon"];
+    [coder encodeObject:rev forKey:@"rev"];
     [coder encodeInt64:revision forKey:@"revision"];
     [coder encodeBool:isDeleted forKey:@"isDeleted"];
 }
-
 
 @end

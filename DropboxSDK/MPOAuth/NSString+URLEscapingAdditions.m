@@ -8,6 +8,8 @@
 
 #import "NSString+URLEscapingAdditions.h"
 
+#import "DBDefines.h"
+
 
 @implementation NSString (MPURLEscapingAdditions)
 
@@ -58,3 +60,5 @@
 }
 
 @end
+
+DB_FIX_CATEGORY_BUG(NSString_URLEscapingAdditions)

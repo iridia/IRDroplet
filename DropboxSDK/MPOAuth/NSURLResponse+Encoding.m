@@ -8,6 +8,8 @@
 
 #import "NSURLResponse+Encoding.h"
 
+#import "DBDefines.h"
+
 
 @implementation NSURLResponse (EncodingAdditions)
 
@@ -25,3 +27,5 @@
 }
 
 @end
+
+DB_FIX_CATEGORY_BUG(NSURLResponse_Encoding)
