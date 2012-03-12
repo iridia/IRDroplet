@@ -74,13 +74,8 @@
 		FF2A54D5150E4F4000553DA6 /* NSURLResponse+Encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2A5489150E4F4000553DA6 /* NSURLResponse+Encoding.m */; };
 		FF2A54D6150E4F4000553DA6 /* NSDictionary+Dropbox.h in Headers */ = {isa = PBXBuildFile; fileRef = FF2A548A150E4F4000553DA6 /* NSDictionary+Dropbox.h */; };
 		FF2A54D7150E4F4000553DA6 /* NSDictionary+Dropbox.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2A548B150E4F4000553DA6 /* NSDictionary+Dropbox.m */; };
-		FF2A54D8150E4F4000553DA6 /* NSObject+DBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = FF2A548C150E4F4000553DA6 /* NSObject+DBJSON.h */; };
-		FF2A54D9150E4F4000553DA6 /* NSString+DBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = FF2A548D150E4F4000553DA6 /* NSString+DBJSON.h */; };
 		FF2A54DA150E4F4000553DA6 /* NSString+Dropbox.h in Headers */ = {isa = PBXBuildFile; fileRef = FF2A548E150E4F4000553DA6 /* NSString+Dropbox.h */; };
 		FF2A54DB150E4F4000553DA6 /* NSString+Dropbox.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2A548F150E4F4000553DA6 /* NSString+Dropbox.m */; };
-		FF2A54DC150E4F4000553DA6 /* NSString+URLEscapingAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = FF2A5490150E4F4000553DA6 /* NSString+URLEscapingAdditions.h */; };
-		FF2A54DD150E4F4000553DA6 /* NSURL+MPURLParameterAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = FF2A5491150E4F4000553DA6 /* NSURL+MPURLParameterAdditions.h */; };
-		FF2A54DE150E4F4000553DA6 /* NSURLResponse+Encoding.h in Headers */ = {isa = PBXBuildFile; fileRef = FF2A5492150E4F4000553DA6 /* NSURLResponse+Encoding.h */; };
 		FF2A54DF150E4F4000553DA6 /* UIAlertView+Dropbox.h in Headers */ = {isa = PBXBuildFile; fileRef = FF2A5493150E4F4000553DA6 /* UIAlertView+Dropbox.h */; };
 		FF2A54E0150E4F4000553DA6 /* UIAlertView+Dropbox.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2A5494150E4F4000553DA6 /* UIAlertView+Dropbox.m */; };
 		FF2AC62A140D599700263CB4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF2AC629140D599700263CB4 /* Security.framework */; };
@@ -160,13 +155,8 @@
 		FF2A5489150E4F4000553DA6 /* NSURLResponse+Encoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLResponse+Encoding.m"; sourceTree = "<group>"; };
 		FF2A548A150E4F4000553DA6 /* NSDictionary+Dropbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Dropbox.h"; sourceTree = "<group>"; };
 		FF2A548B150E4F4000553DA6 /* NSDictionary+Dropbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Dropbox.m"; sourceTree = "<group>"; };
-		FF2A548C150E4F4000553DA6 /* NSObject+DBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DBJSON.h"; sourceTree = "<group>"; };
-		FF2A548D150E4F4000553DA6 /* NSString+DBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DBJSON.h"; sourceTree = "<group>"; };
 		FF2A548E150E4F4000553DA6 /* NSString+Dropbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Dropbox.h"; sourceTree = "<group>"; };
 		FF2A548F150E4F4000553DA6 /* NSString+Dropbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Dropbox.m"; sourceTree = "<group>"; };
-		FF2A5490150E4F4000553DA6 /* NSString+URLEscapingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEscapingAdditions.h"; sourceTree = "<group>"; };
-		FF2A5491150E4F4000553DA6 /* NSURL+MPURLParameterAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+MPURLParameterAdditions.h"; sourceTree = "<group>"; };
-		FF2A5492150E4F4000553DA6 /* NSURLResponse+Encoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLResponse+Encoding.h"; sourceTree = "<group>"; };
 		FF2A5493150E4F4000553DA6 /* UIAlertView+Dropbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Dropbox.h"; sourceTree = "<group>"; };
 		FF2A5494150E4F4000553DA6 /* UIAlertView+Dropbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Dropbox.m"; sourceTree = "<group>"; };
 		FF2AC629140D599700263CB4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -336,13 +326,8 @@
 				FF2A5468150E4F4000553DA6 /* MPOAuth */,
 				FF2A548A150E4F4000553DA6 /* NSDictionary+Dropbox.h */,
 				FF2A548B150E4F4000553DA6 /* NSDictionary+Dropbox.m */,
-				FF2A548C150E4F4000553DA6 /* NSObject+DBJSON.h */,
-				FF2A548D150E4F4000553DA6 /* NSString+DBJSON.h */,
 				FF2A548E150E4F4000553DA6 /* NSString+Dropbox.h */,
 				FF2A548F150E4F4000553DA6 /* NSString+Dropbox.m */,
-				FF2A5490150E4F4000553DA6 /* NSString+URLEscapingAdditions.h */,
-				FF2A5491150E4F4000553DA6 /* NSURL+MPURLParameterAdditions.h */,
-				FF2A5492150E4F4000553DA6 /* NSURLResponse+Encoding.h */,
 				FF2A5493150E4F4000553DA6 /* UIAlertView+Dropbox.h */,
 				FF2A5494150E4F4000553DA6 /* UIAlertView+Dropbox.m */,
 			);
@@ -393,12 +378,7 @@
 				FF2A54CF150E4F4000553DA6 /* MPOAuthURLResponse.h in Headers */,
 				FF2A54D1150E4F4000553DA6 /* MPURLRequestParameter.h in Headers */,
 				FF2A54D6150E4F4000553DA6 /* NSDictionary+Dropbox.h in Headers */,
-				FF2A54D8150E4F4000553DA6 /* NSObject+DBJSON.h in Headers */,
-				FF2A54D9150E4F4000553DA6 /* NSString+DBJSON.h in Headers */,
 				FF2A54DA150E4F4000553DA6 /* NSString+Dropbox.h in Headers */,
-				FF2A54DC150E4F4000553DA6 /* NSString+URLEscapingAdditions.h in Headers */,
-				FF2A54DD150E4F4000553DA6 /* NSURL+MPURLParameterAdditions.h in Headers */,
-				FF2A54DE150E4F4000553DA6 /* NSURLResponse+Encoding.h in Headers */,
 				FF2A54DF150E4F4000553DA6 /* UIAlertView+Dropbox.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
