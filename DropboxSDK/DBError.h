@@ -16,4 +16,6 @@ typedef enum {
     DBErrorGenericError = 1000,
     DBErrorFileNotFound,
     DBErrorInsufficientDiskSpace,
+    DBErrorIllegalFileType, // Error sent if you try to upload a directory
+    DBErrorInvalidResponse, // Sent when the client does not get valid JSON when it's expecting it
 } DBErrorCode;

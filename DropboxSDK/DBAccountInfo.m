@@ -15,7 +15,9 @@
     if ((self = [super init])) {
         country = [[dict objectForKey:@"country"] retain];
         displayName = [[dict objectForKey:@"display_name"] retain];
-        quota = [[DBQuota alloc] initWithDictionary:[dict objectForKey:@"quota_info"]];
+        if ([dict objectForKey:@"quota_info"]) {
+            quota = [[DBQuota alloc] initWithDictionary:[dict objectForKey:@"quota_info"]];
+        }
         userId = [[[dict objectForKey:@"uid"] stringValue] retain];
         referralLink = [[dict objectForKey:@"referral_link"] retain];
     }

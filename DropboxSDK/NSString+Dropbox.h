@@ -10,11 +10,9 @@
 @interface NSString (Dropbox)
 
 // This will take a path for a resource and normalize so you can compare paths
-- (NSString*) normalizedDropboxPath;
+- (NSString*)normalizedDropboxPath;
 
 // Normalizes both paths and compares them
-- (BOOL) isEqualToDropboxPath:(NSString*)otherPath;
-
-- (NSString *) normalizedDropboxFilename;
+- (BOOL)isEqualToDropboxPath:(NSString*)otherPath;
 
 @end

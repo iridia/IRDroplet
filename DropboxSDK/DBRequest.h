@@ -27,6 +27,7 @@
     NSDictionary* userInfo;
 
     NSHTTPURLResponse* response;
+    NSDictionary* xDropboxMetadataJSON;
     NSInteger bytesDownloaded;
     CGFloat downloadProgress;
     CGFloat uploadProgress;
@@ -44,6 +45,10 @@
 /*  Cancels the request and prevents it from sending additional messages to the delegate. */
 - (void)cancel;
 
+/* If there is no error, it will parse the response as JSON and make sure the JSON object is the
+   correct type. If not, it will set the error object with an error code of DBErrorInvalidResponse */
+- (id)parseResponseAsType:(Class)cls;
+
 @property (nonatomic, assign) SEL failureSelector; // To send failure events to a different selector set this
 @property (nonatomic, assign) SEL downloadProgressSelector; // To receive download progress events set this
 @property (nonatomic, assign) SEL uploadProgressSelector; // To receive upload progress events set this
@@ -52,6 +57,7 @@
 
 @property (nonatomic, readonly) NSURLRequest* request;
 @property (nonatomic, readonly) NSHTTPURLResponse* response;
+@property (nonatomic, readonly) NSDictionary* xDropboxMetadataJSON;
 @property (nonatomic, readonly) NSInteger statusCode;
 @property (nonatomic, readonly) CGFloat downloadProgress;
 @property (nonatomic, readonly) CGFloat uploadProgress;

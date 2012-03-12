@@ -8,9 +8,17 @@
 
 #import "MPOAuthCredentialConcreteStore.h"
 
-extern NSString* kDBDropboxAPIHost;
-extern NSString* kDBDropboxAPIContentHost;
-extern NSString* kDBDropboxAPIVersion;
+extern NSString *kDBSDKVersion;
+
+extern NSString *kDBDropboxAPIHost;
+extern NSString *kDBDropboxAPIContentHost;
+extern NSString *kDBDropboxWebHost;
+extern NSString *kDBDropboxAPIVersion;
+
+extern NSString *kDBRootDropbox;
+extern NSString *kDBRootAppFolder;
+
+extern NSString *kDBProtocolHTTPS;
 
 @protocol DBSessionDelegate;
 
@@ -18,20 +26,30 @@ extern NSString* kDBDropboxAPIVersion;
 /*  Creating and setting the shared DBSession should be done before any other Dropbox objects are
     used, perferrably in the UIApplication delegate. */
 @interface DBSession : NSObject {
-    MPOAuthCredentialConcreteStore* credentialStore;
+    NSDictionary *baseCredentials;
+    NSMutableDictionary *credentialStores;
+    NSString *root;
     id<DBSessionDelegate> delegate;
 }
 
 + (DBSession*)sharedSession;
-+ (void)setSharedSession:(DBSession*)session;
++ (void)setSharedSession:(DBSession *)session;
 
-- (id)initWithConsumerKey:(NSString*)key consumerSecret:(NSString*)secret;
-- (BOOL)isLinked; // If not linked, you can only call loginWithEmail:password from the DBRestClient
+- (id)initWithAppKey:(NSString *)key appSecret:(NSString *)secret root:(NSString *)root;
+- (BOOL)isLinked; // Session must be linked before creating any DBRestClient objects
+- (void)link;
+- (void)linkUserId:(NSString *)userId;
 
-- (void)updateAccessToken:(NSString*)token accessTokenSecret:(NSString*)secret;
-- (void)unlink;
+- (BOOL)handleOpenURL:(NSURL *)url;
 
-@property (nonatomic, readonly) MPOAuthCredentialConcreteStore* credentialStore;
+- (void)unlinkAll;
+- (void)unlinkUserId:(NSString *)userId;
+
+- (MPOAuthCredentialConcreteStore *)credentialStoreForUserId:(NSString *)userId;
+- (void)updateAccessToken:(NSString *)token accessTokenSecret:(NSString *)secret forUserId:(NSString *)userId;
+
+@property (nonatomic, readonly) NSString *root;
+@property (nonatomic, readonly) NSArray *userIds;
 @property (nonatomic, assign) id<DBSessionDelegate> delegate;
 
 @end
@@ -39,6 +57,6 @@ extern NSString* kDBDropboxAPIVersion;
 
 @protocol DBSessionDelegate
 
-- (void)sessionDidReceiveAuthorizationFailure:(DBSession*)session;
+- (void)sessionDidReceiveAuthorizationFailure:(DBSession *)session userId:(NSString *)userId;
 
 @end
