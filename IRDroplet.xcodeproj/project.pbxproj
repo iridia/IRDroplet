@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF197C9415165B5B0049BFA7 /* NSString+IRDropletAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = FF197C9215165B5B0049BFA7 /* NSString+IRDropletAdditions.h */; };
+		FF197C9515165B5B0049BFA7 /* NSString+IRDropletAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FF197C9315165B5B0049BFA7 /* NSString+IRDropletAdditions.m */; };
 		FF2A5495150E4F4000553DA6 /* DBAccountInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = FF2A5446150E4F4000553DA6 /* DBAccountInfo.h */; };
 		FF2A5496150E4F4000553DA6 /* DBAccountInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FF2A5447150E4F4000553DA6 /* DBAccountInfo.m */; };
 		FF2A5497150E4F4000553DA6 /* DBDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = FF2A5448150E4F4000553DA6 /* DBDefines.h */; };
@@ -95,6 +97,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FF197C9215165B5B0049BFA7 /* NSString+IRDropletAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+IRDropletAdditions.h"; path = "IRDroplet/NSString+IRDropletAdditions.h"; sourceTree = SOURCE_ROOT; };
+		FF197C9315165B5B0049BFA7 /* NSString+IRDropletAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+IRDropletAdditions.m"; path = "IRDroplet/NSString+IRDropletAdditions.m"; sourceTree = SOURCE_ROOT; };
 		FF2A5446150E4F4000553DA6 /* DBAccountInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBAccountInfo.h; sourceTree = "<group>"; };
 		FF2A5447150E4F4000553DA6 /* DBAccountInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBAccountInfo.m; sourceTree = "<group>"; };
 		FF2A5448150E4F4000553DA6 /* DBDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBDefines.h; sourceTree = "<group>"; };
@@ -308,6 +312,8 @@
 				FF2A553B150E5CFD00553DA6 /* IRDropletLinkAccountViewController.m */,
 				FF2A5541150E62EE00553DA6 /* DBSession+IRDropletAdditions.h */,
 				FF2A5542150E62F000553DA6 /* DBSession+IRDropletAdditions.m */,
+				FF197C9215165B5B0049BFA7 /* NSString+IRDropletAdditions.h */,
+				FF197C9315165B5B0049BFA7 /* NSString+IRDropletAdditions.m */,
 				FF779E76140BF47D00BB974C /* Supporting Files */,
 			);
 			name = IRDroplet;
@@ -408,6 +414,7 @@
 				FF2A5538150E5A1000553DA6 /* NSURLResponse+Encoding.h in Headers */,
 				FF2A553C150E5CFD00553DA6 /* IRDropletLinkAccountViewController.h in Headers */,
 				FF2A5543150E62F000553DA6 /* DBSession+IRDropletAdditions.h in Headers */,
+				FF197C9415165B5B0049BFA7 /* NSString+IRDropletAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +505,7 @@
 				FF2A54E0150E4F4000553DA6 /* UIAlertView+Dropbox.m in Sources */,
 				FF2A553D150E5CFD00553DA6 /* IRDropletLinkAccountViewController.m in Sources */,
 				FF2A5544150E62F000553DA6 /* DBSession+IRDropletAdditions.m in Sources */,
+				FF197C9515165B5B0049BFA7 /* NSString+IRDropletAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
