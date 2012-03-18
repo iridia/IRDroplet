@@ -7,7 +7,3 @@
 //
 
 #import "IRDroplet.h"
-
-@implementation IRDroplet
-
-@end
