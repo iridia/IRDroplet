@@ -6,6 +6,8 @@
 //  Copyright 2011 Iridia Productions. All rights reserved.
 //
 
-@interface IRDroplet : NSObject
+#import "IRDropletLinkAccountViewController.h"
+#import "DBSession+IRDropletAdditions.h"
+#import "NSString+IRDropletAdditions.h"
 
-@end
+#import "DropboxSDK.h"
