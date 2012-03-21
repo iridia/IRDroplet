@@ -85,8 +85,6 @@
 
 	[self.spinner stopAnimating];
 	
-	[[[[UIAlertView alloc] initWithTitle:@"Unable to Link" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
-
 }
 
 - (void) webViewDidFinishLoad:(UIWebView *)webView {
