@@ -14,10 +14,12 @@
 @property (nonatomic, retain) UIWebView *view;
 @property (nonatomic, readwrite, copy) IRDropletLinkAccountCompletion completionBlock;
 
+@property (nonatomic, readonly, retain) UIActivityIndicatorView *spinner;
+
 @end
 
 @implementation IRDropletLinkAccountViewController
-@synthesize completionBlock;
+@synthesize completionBlock, spinner;
 @dynamic view;
 
 + (id) controllerWithCompletion:(IRDropletLinkAccountCompletion)block {
@@ -36,6 +38,8 @@
 	
 	self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(handleCancel:)] autorelease];
 	
+	self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:self.spinner] autorelease];
+	
 	return self;
 
 }
@@ -49,6 +53,7 @@
 - (void) dealloc {
 
 	[completionBlock release];
+	[spinner release];
 	
 	[super dealloc];
 
@@ -70,8 +75,24 @@
 
 }
 
+- (void) webViewDidStartLoad:(UIWebView *)webView {
+
+	[self.spinner startAnimating];
+
+}
+
+- (void) webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+
+	[self.spinner stopAnimating];
+	
+	[[[[UIAlertView alloc] initWithTitle:@"Unable to Link" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease] show];
+
+}
+
 - (void) webViewDidFinishLoad:(UIWebView *)webView {
 
+	[self.spinner stopAnimating];
+	
 	//	Hack around a viewport problem with modal form sheets with some ad-hoc JS array enumerator implementation
 	//	In other words, facepalm (but this is such a common problem with UIWebView’s viewport handling as well?)
 	
@@ -104,6 +125,31 @@
 
 }
 
+- (UIActivityIndicatorView *) spinner {
+
+	if (spinner)
+		return spinner;
+	
+	UIActivityIndicatorViewStyle style;
+	
+	switch ([UIDevice currentDevice].userInterfaceIdiom) {
+		case UIUserInterfaceIdiomPad: {
+			style = UIActivityIndicatorViewStyleGray;
+			break;
+		}
+		case UIUserInterfaceIdiomPhone: {
+			style = UIActivityIndicatorViewStyleWhite;
+			break;
+		}
+	}
+	
+	spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:style];
+	spinner.hidesWhenStopped = YES;
+	
+	return spinner;
+	
+}
+
 - (void) handleCancel:(UIBarButtonItem *)sender {
 
 	if (self.completionBlock)
@@ -117,6 +163,21 @@
 		return self.navigationController;
 	
 	return [[[UINavigationController alloc] initWithRootViewController:self] autorelease];
+
+}
+
+- (BOOL) shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+	
+	switch ([UIDevice currentDevice].userInterfaceIdiom) {
+		case UIUserInterfaceIdiomPad: {
+			return YES;
+			break;
+		}
+		case UIUserInterfaceIdiomPhone: {
+			return UIInterfaceOrientationIsPortrait(toInterfaceOrientation);
+			break;
+		}
+	}
 
 }
 
